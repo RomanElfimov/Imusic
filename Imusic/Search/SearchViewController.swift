@@ -24,6 +24,9 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private var searchViewModel = SearchViewModel.init(cells: [])
     private var timer: Timer? // Немного ждем, пока пользователь не введет в поиск данные
     
+    // footerView
+    private lazy var footerView = FooterView()
+    
     
     // MARK: - Outlet
     
@@ -75,6 +78,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
             
             self.searchViewModel = searchViewModel
             tableView.reloadData()
+            footerView.hideLoader()
+        
+        case .displayFooterView:
+            footerView.showLoader()
         }
     }
     
@@ -89,6 +96,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private func setupTableView() {
         let nib = UINib(nibName: "TrackCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: TrackCell.reuseId)
+        tableView.tableFooterView = footerView
     }
     
 }
@@ -130,8 +138,39 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    // Did Select Row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellViewModel = searchViewModel.cells[indexPath.row]
+        print(cellViewModel.trackName)
+        
+        // По тапу на ячейку появляется модальное окно tableDetailView - по иерархии оно должно находиться поверх всех окон - воспользуемся window из SceneDelegate
+        let window = UIApplication.shared.keyWindow
+        
+        let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
+        
+        window?.addSubview(trackDetailsView)
+    }
+    
+    // Row Height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          return 84
+    }
+    
+    
+    // Header View
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Please enter search term above..."
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        return label
+    }
+    
+    // Высота header view
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        // Если что-то ищем, то высота header view = 0
+        return searchViewModel.cells.count > 0 ? 0 : 250
     }
 }
 

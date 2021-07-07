@@ -19,11 +19,13 @@ enum Search {
         struct Response {
             enum ResponseType {
                 case presentTracks(searchResponse: SearchResponse?)
+                case presentFooterView
             }
         }
         struct ViewModel {
             enum ViewModelData {
                 case displayTracks(searchViewModel: SearchViewModel)
+                case displayFooterView
             }
         }
     }

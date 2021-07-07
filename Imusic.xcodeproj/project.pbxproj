@@ -21,6 +21,9 @@
 		E9126966269498BB009E69AE /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9126965269498BB009E69AE /* UIViewController + Storyboard.swift */; };
 		E91269692694C7A3009E69AE /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91269682694C7A3009E69AE /* TrackCell.xib */; };
 		E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912696A2694C7BF009E69AE /* TrackCell.swift */; };
+		E995D24A2695A2AC00874F21 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995D2492695A2AC00874F21 /* FooterView.swift */; };
+		E995D24D2695AB9300874F21 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E995D24C2695AB9300874F21 /* TrackDetailView.xib */; };
+		E995D24F2695AB9D00874F21 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995D24E2695AB9D00874F21 /* TrackDetailView.swift */; };
 		E9978F8126944DE20031CE63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8026944DE20031CE63 /* AppDelegate.swift */; };
 		E9978F8326944DE20031CE63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8226944DE20031CE63 /* SceneDelegate.swift */; };
 		E9978F8526944DE20031CE63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8426944DE20031CE63 /* ViewController.swift */; };
@@ -47,6 +50,9 @@
 		E9126965269498BB009E69AE /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		E91269682694C7A3009E69AE /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		E912696A2694C7BF009E69AE /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		E995D2492695A2AC00874F21 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		E995D24C2695AB9300874F21 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		E995D24E2695AB9D00874F21 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		E9978F7D26944DE20031CE63 /* Imusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Imusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9978F8026944DE20031CE63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9978F8226944DE20031CE63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +122,8 @@
 		E9126953269492D1009E69AE /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E995D24B2695AB7E00874F21 /* TrackDetailView */,
+				E995D2482695A2A100874F21 /* FooterView */,
 				E91269672694C784009E69AE /* Cell */,
 				E91269622694944B009E69AE /* SearchViewController.storyboard */,
 				E912695826949341009E69AE /* SearchViewController.swift */,
@@ -143,6 +151,23 @@
 				E912696A2694C7BF009E69AE /* TrackCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E995D2482695A2A100874F21 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				E995D2492695A2AC00874F21 /* FooterView.swift */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
+		E995D24B2695AB7E00874F21 /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E995D24C2695AB9300874F21 /* TrackDetailView.xib */,
+				E995D24E2695AB9D00874F21 /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
 			sourceTree = "<group>";
 		};
 		E9978F7426944DE20031CE63 = {
@@ -241,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9978F8D26944DE30031CE63 /* LaunchScreen.storyboard in Resources */,
+				E995D24D2695AB9300874F21 /* TrackDetailView.xib in Resources */,
 				E91269692694C7A3009E69AE /* TrackCell.xib in Resources */,
 				E9978F8A26944DE30031CE63 /* Assets.xcassets in Resources */,
 				E91269632694944B009E69AE /* SearchViewController.storyboard in Resources */,
@@ -302,6 +328,7 @@
 				E9978F8526944DE20031CE63 /* ViewController.swift in Sources */,
 				E912694D26945FFC009E69AE /* SearchResponse.swift in Sources */,
 				E912696026949341009E69AE /* SearchInteractor.swift in Sources */,
+				E995D24A2695A2AC00874F21 /* FooterView.swift in Sources */,
 				E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */,
 				E9978F8126944DE20031CE63 /* AppDelegate.swift in Sources */,
 				E9978F9526944E740031CE63 /* MainTabBarController.swift in Sources */,
@@ -311,6 +338,7 @@
 				E912695E26949341009E69AE /* SearchModels.swift in Sources */,
 				E9978F8326944DE20031CE63 /* SceneDelegate.swift in Sources */,
 				E912695B26949341009E69AE /* SearchPresenter.swift in Sources */,
+				E995D24F2695AB9D00874F21 /* TrackDetailView.swift in Sources */,
 				E912694F26948F17009E69AE /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
