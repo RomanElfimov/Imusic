@@ -9,18 +9,35 @@
 import UIKit
 
 protocol SearchBusinessLogic {
-  func makeRequest(request: Search.Model.Request.RequestType)
+    func makeRequest(request: Search.Model.Request.RequestType)
 }
 
 class SearchInteractor: SearchBusinessLogic {
-
-  var presenter: SearchPresentationLogic?
-  var service: SearchService?
-  
-  func makeRequest(request: Search.Model.Request.RequestType) {
-    if service == nil {
-      service = SearchService()
+    
+    // MARK: - External vars
+    var presenter: SearchPresentationLogic?
+    var service: SearchService?
+    
+    // MARK: - Internal vars
+    private var networkService = NetworkService()
+    
+    func makeRequest(request: Search.Model.Request.RequestType) {
+        
+        if service == nil {
+            service = SearchService()
+        }
+        
+        switch request {
+        
+        case .getTracks(let searchTerm):
+            print("Interactor . getTracks")
+            
+            networkService.fetchTracks(searchText: searchTerm) { [weak self] searchResponse in
+                
+                self?.presenter?.presentData(response: .presentTracks(searchResponse: searchResponse))
+       
+            }
+        }
     }
-  }
-  
+    
 }

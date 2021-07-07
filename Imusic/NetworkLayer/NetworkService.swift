@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkService {
     
-    func fetchTracks(searchText: String, completion: @escaping(SearchReponse?) -> Void) {
+    func fetchTracks(searchText: String, completion: @escaping(SearchResponse?) -> Void) {
         let url = "https://itunes.apple.com/search"
         let parameters = ["term": "\(searchText)",
                           "limit": "50",
@@ -30,7 +30,7 @@ class NetworkService {
             let decoder = JSONDecoder()
             do {
                 
-                let objects = try decoder.decode(SearchReponse.self, from: data)
+                let objects = try decoder.decode(SearchResponse.self, from: data)
                 print("objects", objects)
                 completion(objects)
                 

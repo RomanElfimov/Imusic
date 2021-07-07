@@ -7,6 +7,7 @@ target 'Imusic' do
 
   # Pods for Imusic
 pod 'Alamofire'
+pod 'SDWebImage', '~> 5.0'
 
 
 end

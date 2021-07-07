@@ -19,6 +19,8 @@
 		E912696026949341009E69AE /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912695926949341009E69AE /* SearchInteractor.swift */; };
 		E91269632694944B009E69AE /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91269622694944B009E69AE /* SearchViewController.storyboard */; };
 		E9126966269498BB009E69AE /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9126965269498BB009E69AE /* UIViewController + Storyboard.swift */; };
+		E91269692694C7A3009E69AE /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91269682694C7A3009E69AE /* TrackCell.xib */; };
+		E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912696A2694C7BF009E69AE /* TrackCell.swift */; };
 		E9978F8126944DE20031CE63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8026944DE20031CE63 /* AppDelegate.swift */; };
 		E9978F8326944DE20031CE63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8226944DE20031CE63 /* SceneDelegate.swift */; };
 		E9978F8526944DE20031CE63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8426944DE20031CE63 /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 		E912695926949341009E69AE /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		E91269622694944B009E69AE /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		E9126965269498BB009E69AE /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
+		E91269682694C7A3009E69AE /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		E912696A2694C7BF009E69AE /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		E9978F7D26944DE20031CE63 /* Imusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Imusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9978F8026944DE20031CE63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9978F8226944DE20031CE63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		E9126953269492D1009E69AE /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E91269672694C784009E69AE /* Cell */,
 				E91269622694944B009E69AE /* SearchViewController.storyboard */,
 				E912695826949341009E69AE /* SearchViewController.swift */,
 				E912695926949341009E69AE /* SearchInteractor.swift */,
@@ -129,6 +134,15 @@
 				E9126965269498BB009E69AE /* UIViewController + Storyboard.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E91269672694C784009E69AE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E91269682694C7A3009E69AE /* TrackCell.xib */,
+				E912696A2694C7BF009E69AE /* TrackCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E9978F7426944DE20031CE63 = {
@@ -154,9 +168,9 @@
 			children = (
 				E9978F8026944DE20031CE63 /* AppDelegate.swift */,
 				E9978F8226944DE20031CE63 /* SceneDelegate.swift */,
-				E9126953269492D1009E69AE /* Search */,
 				E912695026949002009E69AE /* NetworkLayer */,
 				E912695226949017009E69AE /* Models */,
+				E9126953269492D1009E69AE /* Search */,
 				E91269512694900F009E69AE /* Controllers */,
 				E9126964269498A8009E69AE /* Helpers */,
 				E9978F8626944DE20031CE63 /* Main.storyboard */,
@@ -227,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9978F8D26944DE30031CE63 /* LaunchScreen.storyboard in Resources */,
+				E91269692694C7A3009E69AE /* TrackCell.xib in Resources */,
 				E9978F8A26944DE30031CE63 /* Assets.xcassets in Resources */,
 				E91269632694944B009E69AE /* SearchViewController.storyboard in Resources */,
 				E9978F8826944DE20031CE63 /* Main.storyboard in Resources */,
@@ -287,6 +302,7 @@
 				E9978F8526944DE20031CE63 /* ViewController.swift in Sources */,
 				E912694D26945FFC009E69AE /* SearchResponse.swift in Sources */,
 				E912696026949341009E69AE /* SearchInteractor.swift in Sources */,
+				E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */,
 				E9978F8126944DE20031CE63 /* AppDelegate.swift in Sources */,
 				E9978F9526944E740031CE63 /* MainTabBarController.swift in Sources */,
 				E912695C26949341009E69AE /* SearchWorker.swift in Sources */,

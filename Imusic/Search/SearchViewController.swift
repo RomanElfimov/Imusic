@@ -19,7 +19,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     var interactor: SearchBusinessLogic?
     var router: (NSObjectProtocol & SearchRoutingLogic)?
     
-    let searchController = UISearchController(searchResultsController: nil)
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    private var searchViewModel = SearchViewModel.init(cells: [])
+    private var timer: Timer? // Немного ждем, пока пользователь не введет в поиск данные
     
     
     // MARK: - Outlet
@@ -67,18 +70,25 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
         
+        switch viewModel {
+        case .displayTracks(let searchViewModel):
+            
+            self.searchViewModel = searchViewModel
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Private Method
     private func setupSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
     
     private func setupTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        let nib = UINib(nibName: "TrackCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: TrackCell.reuseId)
     }
     
 }
@@ -92,9 +102,12 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
         
-        interactor?.makeRequest(request: .getTracks)
-   
+        // Немного ждем, пока пользователь не введет в поиск данные - через полсекунды после того, как отпустим пальцы от экрана
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
         
+            self.interactor?.makeRequest(request: .getTracks(searchTerm: searchText))
+        })
     }
 }
 
@@ -102,18 +115,24 @@ extension SearchViewController: UISearchBarDelegate {
 
 // MARK: - Extension TableView
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return searchViewModel.cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "indexPath \(indexPath)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrackCell.reuseId, for: indexPath) as! TrackCell
+        
+        let cellViewModel = searchViewModel.cells[indexPath.row]
+        cell.setup(viewModel: cellViewModel)
         
         return cell
     }
-  
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         return 84
+    }
 }
 
 
