@@ -69,6 +69,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         
         setupSearchBar()
         setupTableView()
+        
+        searchBar(searchController.searchBar, textDidChange: "Billie")
     }
     
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
@@ -145,8 +147,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         // По тапу на ячейку появляется модальное окно tableDetailView - по иерархии оно должно находиться поверх всех окон - воспользуемся window из SceneDelegate
         let window = UIApplication.shared.keyWindow
+        // let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         
         let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
+        
+        trackDetailsView.set(viewModel: cellViewModel)
         
         window?.addSubview(trackDetailsView)
     }

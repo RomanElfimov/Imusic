@@ -31,6 +31,7 @@
 		E9978F8A26944DE30031CE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9978F8926944DE30031CE63 /* Assets.xcassets */; };
 		E9978F8D26944DE30031CE63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9978F8B26944DE30031CE63 /* LaunchScreen.storyboard */; };
 		E9978F9526944E740031CE63 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F9426944E740031CE63 /* MainTabBarController.swift */; };
+		E9CF93DD26975471009048DB /* CMTime + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CF93DC26975471009048DB /* CMTime + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		E9978F8C26944DE30031CE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9978F8E26944DE30031CE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9978F9426944E740031CE63 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E9CF93DC26975471009048DB /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				E9126965269498BB009E69AE /* UIViewController + Storyboard.swift */,
+				E9CF93DC26975471009048DB /* CMTime + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				E912694D26945FFC009E69AE /* SearchResponse.swift in Sources */,
 				E912696026949341009E69AE /* SearchInteractor.swift in Sources */,
 				E995D24A2695A2AC00874F21 /* FooterView.swift in Sources */,
+				E9CF93DD26975471009048DB /* CMTime + Extension.swift in Sources */,
 				E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */,
 				E9978F8126944DE20031CE63 /* AppDelegate.swift in Sources */,
 				E9978F9526944E740031CE63 /* MainTabBarController.swift in Sources */,
@@ -489,6 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Imusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,6 +513,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Imusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
