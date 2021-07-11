@@ -108,7 +108,6 @@
 		E91269512694900F009E69AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E9978F9426944E740031CE63 /* MainTabBarController.swift */,
 				E912694A26945019009E69AE /* SearchMusicViewController.swift */,
 				E9978F8426944DE20031CE63 /* ViewController.swift */,
 			);
@@ -201,6 +200,7 @@
 				E9978F8226944DE20031CE63 /* SceneDelegate.swift */,
 				E912695026949002009E69AE /* NetworkLayer */,
 				E912695226949017009E69AE /* Models */,
+				E9978F9426944E740031CE63 /* MainTabBarController.swift */,
 				E9126953269492D1009E69AE /* Search */,
 				E91269512694900F009E69AE /* Controllers */,
 				E9126964269498A8009E69AE /* Helpers */,

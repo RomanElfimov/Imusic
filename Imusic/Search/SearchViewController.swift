@@ -26,6 +26,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     // footerView
     private lazy var footerView = FooterView()
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
     
     
     // MARK: - Outlet
@@ -143,18 +144,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     // Did Select Row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellViewModel = searchViewModel.cells[indexPath.row]
-        print(cellViewModel.trackName)
-        
-        // По тапу на ячейку появляется модальное окно tableDetailView - по иерархии оно должно находиться поверх всех окон - воспользуемся window из SceneDelegate
-        let window = UIApplication.shared.keyWindow
-        // let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        
-        let trackDetailsView: TrackDetailView = TrackDetailView.loadFromNib()
-        
-        trackDetailsView.set(viewModel: cellViewModel)
-        trackDetailsView.delegate = self
-        
-        window?.addSubview(trackDetailsView)
+    
+        self.tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
     }
     
     // Row Height
