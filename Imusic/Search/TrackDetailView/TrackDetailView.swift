@@ -9,6 +9,12 @@ import UIKit
 import SDWebImage
 import AVKit
 
+// Протокол для загрузки предыдущего/следующего треков
+protocol TrackMovingDelegate: class {
+    func moveBackForPreviousTrack() -> SearchViewModel.Cell?
+    func moveForwardForNextTrack() -> SearchViewModel.Cell?
+}
+
 class TrackDetailView: UIView {
     
     // MARK: - Outlets
@@ -31,6 +37,9 @@ class TrackDetailView: UIView {
         return avPlayer
     }()
     
+    
+    // MARK: - Delegate
+    weak var delegate: TrackMovingDelegate?
     
     // MARK: - awakeFromNib
     
@@ -143,17 +152,30 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func handleCurrentTimeSlider(_ sender: Any) {
+        let percentage = currentTimeSlider.value
+        guard let duration = player.currentItem?.duration else { return }
+        let durationInSeconds = CMTimeGetSeconds(duration)
+        let seekTimeInSeconds = Float64(percentage) * durationInSeconds
+        let seekTime = CMTimeMakeWithSeconds(seekTimeInSeconds, preferredTimescale: 1)
+        player.seek(to: seekTime)
     }
     
     @IBAction func handleVolumeSlider(_ sender: Any) {
+        player.volume = volumeSlider.value
     }
     
     
     
     @IBAction func previousTrack(_ sender: Any) {
+        let cellViewModel = delegate?.moveBackForPreviousTrack()
+        guard let cellInfo = cellViewModel else { return }
+        self.set(viewModel: cellInfo)
     }
     
     @IBAction func nextTrack(_ sender: Any) {
+        let cellViewModel = delegate?.moveForwardForNextTrack()
+        guard let cellInfo = cellViewModel else { return }
+        self.set(viewModel: cellInfo)
     }
     
     @IBAction func playPauseAction(_ sender: Any) {

@@ -149,9 +149,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let window = UIApplication.shared.keyWindow
         // let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         
-        let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
+        let trackDetailsView: TrackDetailView = TrackDetailView.loadFromNib()
         
         trackDetailsView.set(viewModel: cellViewModel)
+        trackDetailsView.delegate = self
         
         window?.addSubview(trackDetailsView)
     }
@@ -181,4 +182,40 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 
+// MARK: - Extension Track Moving Delegate
 
+extension SearchViewController: TrackMovingDelegate {
+    
+    private func getTrack(isForwardTrack: Bool) -> SearchViewModel.Cell? {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+        tableView.deselectRow(at: indexPath, animated: true)
+        var nextIndexPath: IndexPath!
+        if isForwardTrack {
+            nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            // Когда нажимаем на последний трек
+            if nextIndexPath.row == searchViewModel.cells.count {
+                nextIndexPath.row = 0
+            }
+        } else {
+            nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+            if nextIndexPath.row == -1 {
+                nextIndexPath.row = searchViewModel.cells.count - 1
+            }
+        }
+        
+        tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
+        let cellViewModel = searchViewModel.cells[indexPath.row]
+        print(cellViewModel.trackName)
+        return cellViewModel
+    }
+    
+    func moveBackForPreviousTrack() -> SearchViewModel.Cell? {
+        print("go back")
+        return getTrack(isForwardTrack: false)
+    }
+    
+    func moveForwardForNextTrack() -> SearchViewModel.Cell? {
+        print("go forward")
+        return getTrack(isForwardTrack: true)
+    }
+}
