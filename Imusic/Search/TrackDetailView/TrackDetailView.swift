@@ -10,7 +10,7 @@ import SDWebImage
 import AVKit
 
 // Протокол для загрузки предыдущего/следующего треков
-protocol TrackMovingDelegate: class {
+protocol TrackMovingDelegate {
     func moveBackForPreviousTrack() -> SearchViewModel.Cell?
     func moveForwardForNextTrack() -> SearchViewModel.Cell?
 }
@@ -18,6 +18,9 @@ protocol TrackMovingDelegate: class {
 class TrackDetailView: UIView {
     
     // MARK: - Outlets
+    
+    // TrackDetails Outlets
+    @IBOutlet weak var maximizedStackView: UIStackView!
     
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
@@ -31,6 +34,17 @@ class TrackDetailView: UIView {
     
     @IBOutlet weak var volumeSlider: UISlider!
     
+    
+    // MiniPlayer Outlets
+    @IBOutlet weak var miniTrackView: UIView!
+    @IBOutlet weak var miniPlayPauseButton: UIButton!
+    @IBOutlet weak var miniGoForwardButton: UIButton!
+    @IBOutlet weak var miniTrackImageView: UIImageView!
+    @IBOutlet weak var miniTrackTitleLabel: UILabel!
+    
+    
+    
+    
     let player: AVPlayer = {
         let avPlayer = AVPlayer()
         avPlayer.automaticallyWaitsToMinimizeStalling = false
@@ -39,7 +53,7 @@ class TrackDetailView: UIView {
     
     
     // MARK: - Delegate
-    weak var delegate: TrackMovingDelegate?
+    var delegate: TrackMovingDelegate?
     weak var tabBarDelegate: MainTabBarControllerDelegate?
     
     // MARK: - awakeFromNib
@@ -52,26 +66,34 @@ class TrackDetailView: UIView {
         trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImageView.layer.cornerRadius = 5
         
-        trackImageView.backgroundColor = .red
+        miniPlayPauseButton.imageEdgeInsets = .init(top: 11, left: 11, bottom: 11, right: 11)
+        
+        setupGestures()
     }
     
     
     // MARK: - Methods
     
     func set(viewModel: SearchViewModel.Cell) {
+        miniTrackTitleLabel.text = viewModel.trackName
         trackTitleLabel.text = viewModel.trackName
         authorTitleLabel.text = viewModel.artistName
         
         playTrack(previewUrl: viewModel.previewUrl)
         monitorStartTime()
         observePlayerCurrentTime()
+        playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
        
         guard let url = URL(string: string600 ?? "") else { return }
+        
         trackImageView.sd_setImage(with: url, completed: nil)
+        miniTrackImageView.sd_setImage(with: url, completed: nil)
     }
     
+
     
     private func playTrack(previewUrl: String?) {
         print("Пытаюсь включить трек по ссылке \(previewUrl ?? "Отсутствует")")
@@ -132,7 +154,6 @@ class TrackDetailView: UIView {
     }
     
     
-    
     private func updateCurrentTimeSlider() {
         // В каком месте сейчас находимся
         let currentTimeSeconds = CMTimeGetSeconds(player.currentTime())
@@ -141,6 +162,86 @@ class TrackDetailView: UIView {
         // Соотношение в процентах
         let percentage = currentTimeSeconds / durationSeconds
         self.currentTimeSlider.value = Float(percentage)
+    }
+    
+    
+    // MARK: - Gestures
+    
+    private func setupGestures() {
+        miniTrackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximized)))
+        miniTrackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
+    }
+    
+    // MARK: - Selectors
+    
+    //  Разворачиваем на весь экран
+    @objc private func handleTapMaximized() {
+        print("tapping to max")
+        self.tabBarDelegate?.maximizeTrackDetailController(viewModel: nil)
+    }
+    
+    // Сворачиваем/разворачиваем экран по свайпу
+    @objc func handlePan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            print("began")
+        case .changed:
+            handlePanChanged(gesture: gesture)
+        case .ended:
+            handlePanEnded(gesture: gesture)
+        @unknown default:
+            print("unknown default")
+        }
+    }
+    
+    // Миниплеер двигается за пальцем
+    private func handlePanChanged(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        self.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        
+        let newAlpha = 1 + translation.y / 200
+        self.miniTrackView.alpha = newAlpha < 0 ? 0 : newAlpha
+        self.maximizedStackView.alpha = -translation.y / 200
+    }
+    
+    // Когда отпустили палец - либо контроллер полностью на экране, либо спрятан
+    private func handlePanEnded(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        let velocity = gesture.velocity(in: self.superview)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            // Если подняли экран выше чем 200 поинтов, и скорость выше чем 500 то раскрываем
+            self.transform = .identity
+            if translation.y < -200 || velocity.y < -500 {
+                self.tabBarDelegate?.maximizeTrackDetailController(viewModel: nil)
+            } else {
+                self.miniTrackView.alpha = 1
+                self.maximizedStackView.alpha = 0
+            }
+        }, completion: nil)
+    }
+    
+    
+    @objc private func handleDismissalPan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .changed:
+            // Экран двигается за пальцем
+            let translation = gesture.translation(in: self.superview)
+            maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        case .ended:
+            
+            let translation = gesture.translation(in: self.superview)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.maximizedStackView.transform = .identity
+                if translation.y > 50 {
+                    self.tabBarDelegate?.minimizeTrackDetailController()
+                }
+            }, completion: nil)
+            
+        @unknown default:
+            print("unknown default")
+        }
     }
     
     
@@ -186,10 +287,12 @@ class TrackDetailView: UIView {
         if player.timeControlStatus == .paused {
             player.play()
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             enlargeTrackImageView()
         } else {
             player.pause()
             playPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             reduceTrackImageView()
         }
     }

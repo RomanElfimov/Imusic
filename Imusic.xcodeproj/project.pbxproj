@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,9 @@
 		E91269692694C7A3009E69AE /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91269682694C7A3009E69AE /* TrackCell.xib */; };
 		E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912696A2694C7BF009E69AE /* TrackCell.swift */; };
 		E9689A9F269AD2F200A21C57 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9689A9E269AD2F200A21C57 /* Nib.swift */; };
+		E9689AA1269B2B0900A21C57 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9689AA0269B2B0900A21C57 /* Library.swift */; };
+		E9689AA3269C575E00A21C57 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9689AA2269C575E00A21C57 /* UserDefaults.swift */; };
+		E9689AA6269C627C00A21C57 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = E9689AA5269C627C00A21C57 /* URLImage */; };
 		E995D24A2695A2AC00874F21 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995D2492695A2AC00874F21 /* FooterView.swift */; };
 		E995D24D2695AB9300874F21 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E995D24C2695AB9300874F21 /* TrackDetailView.xib */; };
 		E995D24F2695AB9D00874F21 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995D24E2695AB9D00874F21 /* TrackDetailView.swift */; };
@@ -53,6 +56,8 @@
 		E91269682694C7A3009E69AE /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		E912696A2694C7BF009E69AE /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		E9689A9E269AD2F200A21C57 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
+		E9689AA0269B2B0900A21C57 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		E9689AA2269C575E00A21C57 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E995D2492695A2AC00874F21 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		E995D24C2695AB9300874F21 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		E995D24E2695AB9D00874F21 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9689AA6269C627C00A21C57 /* URLImage in Frameworks */,
 				33E094FEBC984185BFC5DABF /* Pods_Imusic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +151,7 @@
 				E9126965269498BB009E69AE /* UIViewController + Storyboard.swift */,
 				E9CF93DC26975471009048DB /* CMTime + Extension.swift */,
 				E9689A9E269AD2F200A21C57 /* Nib.swift */,
+				E9689AA2269C575E00A21C57 /* UserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 				E912695026949002009E69AE /* NetworkLayer */,
 				E912695226949017009E69AE /* Models */,
 				E9978F9426944E740031CE63 /* MainTabBarController.swift */,
+				E9689AA0269B2B0900A21C57 /* Library.swift */,
 				E9126953269492D1009E69AE /* Search */,
 				E91269512694900F009E69AE /* Controllers */,
 				E9126964269498A8009E69AE /* Helpers */,
@@ -230,6 +238,9 @@
 			dependencies = (
 			);
 			name = Imusic;
+			packageProductDependencies = (
+				E9689AA5269C627C00A21C57 /* URLImage */,
+			);
 			productName = Imusic;
 			productReference = E9978F7D26944DE20031CE63 /* Imusic.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +268,9 @@
 				Base,
 			);
 			mainGroup = E9978F7426944DE20031CE63;
+			packageReferences = (
+				E9689AA4269C627C00A21C57 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = E9978F7E26944DE20031CE63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -334,6 +348,7 @@
 				E9978F8526944DE20031CE63 /* ViewController.swift in Sources */,
 				E912694D26945FFC009E69AE /* SearchResponse.swift in Sources */,
 				E912696026949341009E69AE /* SearchInteractor.swift in Sources */,
+				E9689AA3269C575E00A21C57 /* UserDefaults.swift in Sources */,
 				E995D24A2695A2AC00874F21 /* FooterView.swift in Sources */,
 				E9CF93DD26975471009048DB /* CMTime + Extension.swift in Sources */,
 				E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */,
@@ -346,6 +361,7 @@
 				E912695E26949341009E69AE /* SearchModels.swift in Sources */,
 				E9978F8326944DE20031CE63 /* SceneDelegate.swift in Sources */,
 				E912695B26949341009E69AE /* SearchPresenter.swift in Sources */,
+				E9689AA1269B2B0900A21C57 /* Library.swift in Sources */,
 				E995D24F2695AB9D00874F21 /* TrackDetailView.swift in Sources */,
 				E912694F26948F17009E69AE /* NetworkService.swift in Sources */,
 			);
@@ -551,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9689AA4269C627C00A21C57 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9689AA5269C627C00A21C57 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9689AA4269C627C00A21C57 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9978F7526944DE20031CE63 /* Project object */;
 }

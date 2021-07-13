@@ -74,6 +74,23 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         searchBar(searchController.searchBar, textDidChange: "Billie")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Нужен tabBarController
+        let keyWindow = UIApplication.shared.connectedScenes
+            .filter {
+                $0.activationState == .foregroundActive
+            }
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+        
+        let tabBarVC = keyWindow?.rootViewController as? MainTabBarController
+        tabBarVC?.trackDetailView.delegate = self
+    }
+    
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
         
         switch viewModel {
@@ -178,12 +195,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: TrackMovingDelegate {
     
     private func getTrack(isForwardTrack: Bool) -> SearchViewModel.Cell? {
+
         guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
         tableView.deselectRow(at: indexPath, animated: true)
         var nextIndexPath: IndexPath!
         if isForwardTrack {
             nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
-            // Когда нажимаем на последний трек
             if nextIndexPath.row == searchViewModel.cells.count {
                 nextIndexPath.row = 0
             }
@@ -195,8 +212,7 @@ extension SearchViewController: TrackMovingDelegate {
         }
         
         tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
-        let cellViewModel = searchViewModel.cells[indexPath.row]
-        print(cellViewModel.trackName)
+        let cellViewModel = searchViewModel.cells[nextIndexPath.row]
         return cellViewModel
     }
     

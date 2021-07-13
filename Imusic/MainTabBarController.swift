@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 // Экран анимировано уходит вниз
 protocol MainTabBarControllerDelegate: class {
@@ -34,14 +35,18 @@ class MainTabBarController: UITabBarController {
         setupTrackDetailView()
         searchVC.tabBarDelegate = self
         
+        // library screen
+        var library = Library()
+        library.tabBarDelegate = self
+        let hostViewController = UIHostingController(rootView: library)
+        hostViewController.tabBarItem.image = #imageLiteral(resourceName: "library")
+        hostViewController.tabBarItem.title = "Library"
+        
         viewControllers = [
+            hostViewController,
             generateViewController(rootViewController: searchVC,
                                    image: #imageLiteral(resourceName: "search"),
-                                   title: "Search"),
-            
-            generateViewController(rootViewController: ViewController(),
-                                   image: #imageLiteral(resourceName: "library"),
-                                   title: "Library")
+                                   title: "Search")
         ]
     }
     
@@ -100,13 +105,15 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        animations: {
                         self.view.layoutIfNeeded()
                         self.tabBar.alpha = 1
+                        self.trackDetailView.miniTrackView.alpha = 1
+                        self.trackDetailView.maximizedStackView.alpha = 0
                        },
                        completion: nil)
     }
     
     func maximizeTrackDetailController(viewModel: SearchViewModel.Cell?) {
-        maximizedTopAnchorConstraint.isActive = true
         minimizedTopAnchorConstraint.isActive = false
+        maximizedTopAnchorConstraint.isActive = true
         maximizedTopAnchorConstraint.constant = 0
         bottomAnchorConstraint.constant = 0
         
@@ -118,6 +125,8 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        animations: {
                         self.view.layoutIfNeeded()
                         self.tabBar.alpha = 0
+                        self.trackDetailView.miniTrackView.alpha = 0
+                        self.trackDetailView.maximizedStackView.alpha = 1
                        },
                        completion: nil)
         guard let viewModel = viewModel else { return }
