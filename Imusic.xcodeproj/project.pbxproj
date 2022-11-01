@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB108062704D78C91133B21E /* Pods_Imusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBDA79E50BF98BE5389E1D /* Pods_Imusic.framework */; };
+		E912694D26945FFC009E69AE /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912694C26945FFC009E69AE /* SearchResponse.swift */; };
+		E912694F26948F17009E69AE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912694E26948F17009E69AE /* NetworkService.swift */; };
+		E912695B26949341009E69AE /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912695426949341009E69AE /* SearchPresenter.swift */; };
+		E912695E26949341009E69AE /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912695726949341009E69AE /* SearchModels.swift */; };
+		E912695F26949341009E69AE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912695826949341009E69AE /* SearchViewController.swift */; };
+		E912696026949341009E69AE /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912695926949341009E69AE /* SearchInteractor.swift */; };
+		E91269632694944B009E69AE /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E91269622694944B009E69AE /* SearchViewController.storyboard */; };
+		E9126966269498BB009E69AE /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9126965269498BB009E69AE /* UIViewController + Extension.swift */; };
+		E91269692694C7A3009E69AE /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91269682694C7A3009E69AE /* TrackCell.xib */; };
+		E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E912696A2694C7BF009E69AE /* TrackCell.swift */; };
+		E9689AA1269B2B0900A21C57 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9689AA0269B2B0900A21C57 /* Library.swift */; };
+		E9689AA3269C575E00A21C57 /* UserDefaults + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9689AA2269C575E00A21C57 /* UserDefaults + Extension.swift */; };
+		E9689AA6269C627C00A21C57 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = E9689AA5269C627C00A21C57 /* URLImage */; };
+		E995D24A2695A2AC00874F21 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995D2492695A2AC00874F21 /* FooterView.swift */; };
+		E995D24D2695AB9300874F21 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E995D24C2695AB9300874F21 /* TrackDetailView.xib */; };
+		E995D24F2695AB9D00874F21 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995D24E2695AB9D00874F21 /* TrackDetailView.swift */; };
+		E9978F8126944DE20031CE63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8026944DE20031CE63 /* AppDelegate.swift */; };
+		E9978F8326944DE20031CE63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F8226944DE20031CE63 /* SceneDelegate.swift */; };
+		E9978F8A26944DE30031CE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9978F8926944DE30031CE63 /* Assets.xcassets */; };
+		E9978F8D26944DE30031CE63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9978F8B26944DE30031CE63 /* LaunchScreen.storyboard */; };
+		E9978F9526944E740031CE63 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9978F9426944E740031CE63 /* MainTabBarController.swift */; };
+		E99AEFD928BE89CB00AD2C11 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AEFD828BE89CB00AD2C11 /* OverviewViewController.swift */; };
+		E99AEFDB28BF880C00AD2C11 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AEFDA28BF880C00AD2C11 /* TrackViewModel.swift */; };
+		E99AEFDF28BF8A9800AD2C11 /* OverviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AEFDE28BF8A9800AD2C11 /* OverviewInteractor.swift */; };
+		E99AEFE328BF8EBF00AD2C11 /* OverviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AEFE228BF8EBF00AD2C11 /* OverviewPresenter.swift */; };
+		E99AEFE728BF8EC900AD2C11 /* OverviewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AEFE628BF8EC900AD2C11 /* OverviewModels.swift */; };
+		E99AF00A28C1244800AD2C11 /* SongsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF00928C1244800AD2C11 /* SongsCollectionViewCell.swift */; };
+		E99AF00C28C1244E00AD2C11 /* ChartsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF00B28C1244E00AD2C11 /* ChartsCollectionViewCell.swift */; };
+		E99AF00E28C1299900AD2C11 /* SelfConfiguringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF00D28C1299900AD2C11 /* SelfConfiguringCell.swift */; };
+		E99AF01128C1E7BB00AD2C11 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF01028C1E7BB00AD2C11 /* SectionHeader.swift */; };
+		E99AF01328C1FB1A00AD2C11 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF01228C1FB1A00AD2C11 /* UIView+Extension.swift */; };
+		E99AF01528C3BE9700AD2C11 /* ChartsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF01428C3BE9700AD2C11 /* ChartsDetailViewController.swift */; };
+		E99AF01928C3C28F00AD2C11 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF01828C3C28F00AD2C11 /* Charts.swift */; };
+		E99AF01B28C3C29400AD2C11 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF01A28C3C29400AD2C11 /* Playlist.swift */; };
+		E99AF01E28C4C82500AD2C11 /* ChartsDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF01D28C4C82500AD2C11 /* ChartsDetailInteractor.swift */; };
+		E99AF02028C4C83000AD2C11 /* ChartsDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF01F28C4C83000AD2C11 /* ChartsDetailPresenter.swift */; };
+		E99AF02228C4C83700AD2C11 /* ChartsDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF02128C4C83700AD2C11 /* ChartsDetailModels.swift */; };
+		E99AF02428C4C83D00AD2C11 /* ChartsDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF02328C4C83D00AD2C11 /* ChartsDetailRouter.swift */; };
+		E99AF02628C4D1FE00AD2C11 /* OverviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AF02528C4D1FE00AD2C11 /* OverviewRouter.swift */; };
+		E9CF93DD26975471009048DB /* CMTime + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CF93DC26975471009048DB /* CMTime + Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		47B9498F2C15C485F7B3F2E9 /* Pods-Imusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Imusic.release.xcconfig"; path = "Target Support Files/Pods-Imusic/Pods-Imusic.release.xcconfig"; sourceTree = "<group>"; };
+		61DBDA79E50BF98BE5389E1D /* Pods_Imusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Imusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA3EB248B874FB943F876E7 /* Pods-Imusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Imusic.debug.xcconfig"; path = "Target Support Files/Pods-Imusic/Pods-Imusic.debug.xcconfig"; sourceTree = "<group>"; };
+		E912694C26945FFC009E69AE /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		E912694E26948F17009E69AE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E912695426949341009E69AE /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		E912695726949341009E69AE /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		E912695826949341009E69AE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E912695926949341009E69AE /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		E91269622694944B009E69AE /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		E9126965269498BB009E69AE /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		E91269682694C7A3009E69AE /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		E912696A2694C7BF009E69AE /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		E9689AA0269B2B0900A21C57 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		E9689AA2269C575E00A21C57 /* UserDefaults + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + Extension.swift"; sourceTree = "<group>"; };
+		E995D2492695A2AC00874F21 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		E995D24C2695AB9300874F21 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		E995D24E2695AB9D00874F21 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
+		E9978F7D26944DE20031CE63 /* Imusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Imusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9978F8026944DE20031CE63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E9978F8226944DE20031CE63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E9978F8926944DE30031CE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9978F8C26944DE30031CE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9978F8E26944DE30031CE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9978F9426944E740031CE63 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E99AEFD828BE89CB00AD2C11 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		E99AEFDA28BF880C00AD2C11 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		E99AEFDE28BF8A9800AD2C11 /* OverviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewInteractor.swift; sourceTree = "<group>"; };
+		E99AEFE228BF8EBF00AD2C11 /* OverviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPresenter.swift; sourceTree = "<group>"; };
+		E99AEFE628BF8EC900AD2C11 /* OverviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewModels.swift; sourceTree = "<group>"; };
+		E99AF00928C1244800AD2C11 /* SongsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsCollectionViewCell.swift; sourceTree = "<group>"; };
+		E99AF00B28C1244E00AD2C11 /* ChartsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsCollectionViewCell.swift; sourceTree = "<group>"; };
+		E99AF00D28C1299900AD2C11 /* SelfConfiguringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCell.swift; sourceTree = "<group>"; };
+		E99AF01028C1E7BB00AD2C11 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		E99AF01228C1FB1A00AD2C11 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E99AF01428C3BE9700AD2C11 /* ChartsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDetailViewController.swift; sourceTree = "<group>"; };
+		E99AF01828C3C28F00AD2C11 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
+		E99AF01A28C3C29400AD2C11 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		E99AF01D28C4C82500AD2C11 /* ChartsDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDetailInteractor.swift; sourceTree = "<group>"; };
+		E99AF01F28C4C83000AD2C11 /* ChartsDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDetailPresenter.swift; sourceTree = "<group>"; };
+		E99AF02128C4C83700AD2C11 /* ChartsDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDetailModels.swift; sourceTree = "<group>"; };
+		E99AF02328C4C83D00AD2C11 /* ChartsDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDetailRouter.swift; sourceTree = "<group>"; };
+		E99AF02528C4D1FE00AD2C11 /* OverviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewRouter.swift; sourceTree = "<group>"; };
+		E9CF93DC26975471009048DB /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9978F7A26944DE20031CE63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9689AA6269C627C00A21C57 /* URLImage in Frameworks */,
+				DB108062704D78C91133B21E /* Pods_Imusic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21496C05BABAE8CDFE1F4995 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61DBDA79E50BF98BE5389E1D /* Pods_Imusic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B04971F983F447E85437FF8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCA3EB248B874FB943F876E7 /* Pods-Imusic.debug.xcconfig */,
+				47B9498F2C15C485F7B3F2E9 /* Pods-Imusic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E912695026949002009E69AE /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E912694E26948F17009E69AE /* NetworkService.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		E912695226949017009E69AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF01628C3C27D00AD2C11 /* BackendModels */,
+				E99AF01728C3C28400AD2C11 /* ViewModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9126953269492D1009E69AE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E995D2482695A2A100874F21 /* FooterView */,
+				E91269672694C784009E69AE /* Cell */,
+				E91269622694944B009E69AE /* SearchViewController.storyboard */,
+				E912695826949341009E69AE /* SearchViewController.swift */,
+				E912695926949341009E69AE /* SearchInteractor.swift */,
+				E912695426949341009E69AE /* SearchPresenter.swift */,
+				E912695726949341009E69AE /* SearchModels.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		E9126964269498A8009E69AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF00D28C1299900AD2C11 /* SelfConfiguringCell.swift */,
+				E9126965269498BB009E69AE /* UIViewController + Extension.swift */,
+				E99AF01228C1FB1A00AD2C11 /* UIView+Extension.swift */,
+				E9689AA2269C575E00A21C57 /* UserDefaults + Extension.swift */,
+				E9CF93DC26975471009048DB /* CMTime + Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E91269672694C784009E69AE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E91269682694C7A3009E69AE /* TrackCell.xib */,
+				E912696A2694C7BF009E69AE /* TrackCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E98EFD9C28D0E2C400DD9490 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E9978F8026944DE20031CE63 /* AppDelegate.swift */,
+				E9978F8226944DE20031CE63 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E98EFD9D28D0E34500DD9490 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E912695026949002009E69AE /* NetworkLayer */,
+				E912695226949017009E69AE /* Models */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E98EFD9E28D0E35A00DD9490 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9978F8926944DE30031CE63 /* Assets.xcassets */,
+				E9978F8B26944DE30031CE63 /* LaunchScreen.storyboard */,
+				E9978F8E26944DE30031CE63 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E995D2482695A2A100874F21 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				E995D2492695A2AC00874F21 /* FooterView.swift */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
+		E995D24B2695AB7E00874F21 /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E995D24C2695AB9300874F21 /* TrackDetailView.xib */,
+				E995D24E2695AB9D00874F21 /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
+			sourceTree = "<group>";
+		};
+		E9978F7426944DE20031CE63 = {
+			isa = PBXGroup;
+			children = (
+				E9978F7F26944DE20031CE63 /* Imusic */,
+				E9978F7E26944DE20031CE63 /* Products */,
+				B04971F983F447E85437FF8E /* Pods */,
+				21496C05BABAE8CDFE1F4995 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E9978F7E26944DE20031CE63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9978F7D26944DE20031CE63 /* Imusic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9978F7F26944DE20031CE63 /* Imusic */ = {
+			isa = PBXGroup;
+			children = (
+				E98EFD9C28D0E2C400DD9490 /* Application */,
+				E98EFD9D28D0E34500DD9490 /* API */,
+				E9978F9426944E740031CE63 /* MainTabBarController.swift */,
+				E99AEFDC28BF89FC00AD2C11 /* Overview */,
+				E99AF01C28C4C79200AD2C11 /* ChartsDetail */,
+				E99AEFDD28BF8A0300AD2C11 /* Library */,
+				E9126953269492D1009E69AE /* Search */,
+				E995D24B2695AB7E00874F21 /* TrackDetailView */,
+				E9126964269498A8009E69AE /* Helpers */,
+				E98EFD9E28D0E35A00DD9490 /* Resources */,
+			);
+			path = Imusic;
+			sourceTree = "<group>";
+		};
+		E99AEFDC28BF89FC00AD2C11 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF00828C1242E00AD2C11 /* Cells */,
+				E99AF00F28C1E7A800AD2C11 /* Header */,
+				E99AEFD828BE89CB00AD2C11 /* OverviewViewController.swift */,
+				E99AEFDE28BF8A9800AD2C11 /* OverviewInteractor.swift */,
+				E99AEFE228BF8EBF00AD2C11 /* OverviewPresenter.swift */,
+				E99AEFE628BF8EC900AD2C11 /* OverviewModels.swift */,
+				E99AF02528C4D1FE00AD2C11 /* OverviewRouter.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		E99AEFDD28BF8A0300AD2C11 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E9689AA0269B2B0900A21C57 /* Library.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		E99AF00828C1242E00AD2C11 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF00928C1244800AD2C11 /* SongsCollectionViewCell.swift */,
+				E99AF00B28C1244E00AD2C11 /* ChartsCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E99AF00F28C1E7A800AD2C11 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF01028C1E7BB00AD2C11 /* SectionHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		E99AF01628C3C27D00AD2C11 /* BackendModels */ = {
+			isa = PBXGroup;
+			children = (
+				E912694C26945FFC009E69AE /* SearchResponse.swift */,
+				E99AF01828C3C28F00AD2C11 /* Charts.swift */,
+				E99AF01A28C3C29400AD2C11 /* Playlist.swift */,
+			);
+			path = BackendModels;
+			sourceTree = "<group>";
+		};
+		E99AF01728C3C28400AD2C11 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E99AEFDA28BF880C00AD2C11 /* TrackViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E99AF01C28C4C79200AD2C11 /* ChartsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF01428C3BE9700AD2C11 /* ChartsDetailViewController.swift */,
+				E99AF01D28C4C82500AD2C11 /* ChartsDetailInteractor.swift */,
+				E99AF01F28C4C83000AD2C11 /* ChartsDetailPresenter.swift */,
+				E99AF02128C4C83700AD2C11 /* ChartsDetailModels.swift */,
+				E99AF02328C4C83D00AD2C11 /* ChartsDetailRouter.swift */,
+			);
+			path = ChartsDetail;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9978F7C26944DE20031CE63 /* Imusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9978F9126944DE30031CE63 /* Build configuration list for PBXNativeTarget "Imusic" */;
+			buildPhases = (
+				0B877B16BB7CF482BF814534 /* [CP] Check Pods Manifest.lock */,
+				E9978F7926944DE20031CE63 /* Sources */,
+				E9978F7A26944DE20031CE63 /* Frameworks */,
+				E9978F7B26944DE20031CE63 /* Resources */,
+				F562EF610B791426198F0A4D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Imusic;
+			packageProductDependencies = (
+				E9689AA5269C627C00A21C57 /* URLImage */,
+			);
+			productName = Imusic;
+			productReference = E9978F7D26944DE20031CE63 /* Imusic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9978F7526944DE20031CE63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					E9978F7C26944DE20031CE63 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = E9978F7826944DE20031CE63 /* Build configuration list for PBXProject "Imusic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E9978F7426944DE20031CE63;
+			packageReferences = (
+				E9689AA4269C627C00A21C57 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
+			productRefGroup = E9978F7E26944DE20031CE63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9978F7C26944DE20031CE63 /* Imusic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9978F7B26944DE20031CE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9978F8D26944DE30031CE63 /* LaunchScreen.storyboard in Resources */,
+				E995D24D2695AB9300874F21 /* TrackDetailView.xib in Resources */,
+				E91269692694C7A3009E69AE /* TrackCell.xib in Resources */,
+				E9978F8A26944DE30031CE63 /* Assets.xcassets in Resources */,
+				E91269632694944B009E69AE /* SearchViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B877B16BB7CF482BF814534 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Imusic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F562EF610B791426198F0A4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Imusic/Pods-Imusic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Imusic/Pods-Imusic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Imusic/Pods-Imusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9978F7926944DE20031CE63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9126966269498BB009E69AE /* UIViewController + Extension.swift in Sources */,
+				E99AF01528C3BE9700AD2C11 /* ChartsDetailViewController.swift in Sources */,
+				E99AF02228C4C83700AD2C11 /* ChartsDetailModels.swift in Sources */,
+				E99AEFDB28BF880C00AD2C11 /* TrackViewModel.swift in Sources */,
+				E99AF00C28C1244E00AD2C11 /* ChartsCollectionViewCell.swift in Sources */,
+				E912694D26945FFC009E69AE /* SearchResponse.swift in Sources */,
+				E99AF01128C1E7BB00AD2C11 /* SectionHeader.swift in Sources */,
+				E912696026949341009E69AE /* SearchInteractor.swift in Sources */,
+				E9689AA3269C575E00A21C57 /* UserDefaults + Extension.swift in Sources */,
+				E995D24A2695A2AC00874F21 /* FooterView.swift in Sources */,
+				E99AEFE728BF8EC900AD2C11 /* OverviewModels.swift in Sources */,
+				E9CF93DD26975471009048DB /* CMTime + Extension.swift in Sources */,
+				E912696B2694C7BF009E69AE /* TrackCell.swift in Sources */,
+				E99AF02028C4C83000AD2C11 /* ChartsDetailPresenter.swift in Sources */,
+				E9978F8126944DE20031CE63 /* AppDelegate.swift in Sources */,
+				E9978F9526944E740031CE63 /* MainTabBarController.swift in Sources */,
+				E99AF01928C3C28F00AD2C11 /* Charts.swift in Sources */,
+				E99AEFE328BF8EBF00AD2C11 /* OverviewPresenter.swift in Sources */,
+				E912695F26949341009E69AE /* SearchViewController.swift in Sources */,
+				E99AF01E28C4C82500AD2C11 /* ChartsDetailInteractor.swift in Sources */,
+				E99AEFD928BE89CB00AD2C11 /* OverviewViewController.swift in Sources */,
+				E99AF01B28C3C29400AD2C11 /* Playlist.swift in Sources */,
+				E99AF01328C1FB1A00AD2C11 /* UIView+Extension.swift in Sources */,
+				E99AEFDF28BF8A9800AD2C11 /* OverviewInteractor.swift in Sources */,
+				E99AF00A28C1244800AD2C11 /* SongsCollectionViewCell.swift in Sources */,
+				E99AF00E28C1299900AD2C11 /* SelfConfiguringCell.swift in Sources */,
+				E912695E26949341009E69AE /* SearchModels.swift in Sources */,
+				E9978F8326944DE20031CE63 /* SceneDelegate.swift in Sources */,
+				E912695B26949341009E69AE /* SearchPresenter.swift in Sources */,
+				E9689AA1269B2B0900A21C57 /* Library.swift in Sources */,
+				E99AF02428C4C83D00AD2C11 /* ChartsDetailRouter.swift in Sources */,
+				E995D24F2695AB9D00874F21 /* TrackDetailView.swift in Sources */,
+				E912694F26948F17009E69AE /* NetworkService.swift in Sources */,
+				E99AF02628C4D1FE00AD2C11 /* OverviewRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E9978F8B26944DE30031CE63 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9978F8C26944DE30031CE63 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9978F8F26944DE30031CE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E9978F9026944DE30031CE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9978F9226944DE30031CE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCA3EB248B874FB943F876E7 /* Pods-Imusic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S59HYY3L5C;
+				EXCLUDED_ARCHS = "";
+				INFOPLIST_FILE = Imusic/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RomanElfimov.Imusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E9978F9326944DE30031CE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47B9498F2C15C485F7B3F2E9 /* Pods-Imusic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S59HYY3L5C;
+				EXCLUDED_ARCHS = "";
+				INFOPLIST_FILE = Imusic/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RomanElfimov.Imusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9978F7826944DE20031CE63 /* Build configuration list for PBXProject "Imusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9978F8F26944DE30031CE63 /* Debug */,
+				E9978F9026944DE30031CE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9978F9126944DE30031CE63 /* Build configuration list for PBXNativeTarget "Imusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9978F9226944DE30031CE63 /* Debug */,
+				E9978F9326944DE30031CE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9689AA4269C627C00A21C57 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9689AA5269C627C00A21C57 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9689AA4269C627C00A21C57 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E9978F7526944DE20031CE63 /* Project object */;
+}
